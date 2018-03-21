@@ -38,6 +38,16 @@
                         </span>
                     @endif
                 </div>
+                <div class="form-group has-feedback {{ $errors->has('prontuario') ? 'has-error' : '' }}">
+                    <input type="text" name="prontuario" class="form-control" value="{{ old('prontuario') }}"
+                           placeholder="{{ trans('prontuario') }}">
+                    <span class="glyphicon glyphicon-education form-control-feedback"></span>
+                    @if ($errors->has('prontuario'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('prontuario') }}</strong>
+                        </span>
+                    @endif
+                </div>
                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
                     <input type="password" name="password" class="form-control"
                            placeholder="{{ trans('adminlte::adminlte.password') }}">
