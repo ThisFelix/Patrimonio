@@ -1,5 +1,8 @@
 @extends('adminlte::master')
 
+
+@section('title_postfix', 'Registro')
+
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
     @yield('css')

@@ -15,7 +15,7 @@ return [
 
     'title' => ' - ',
 
-    'title_prefix' => 'IFSP',
+    'title_prefix' => 'CEE',
 
     'title_postfix' => '',
 

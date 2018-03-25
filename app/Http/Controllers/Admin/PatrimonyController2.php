@@ -8,11 +8,11 @@ use App\Http\Controllers\Controller;
 class PatrimonyController2 extends Controller
 {
     public function index(){
-        return view('admin.home.equipamentos');
+        return view('admin.patrimonies.list');
     }
 
     public function create(){
-        return "Tela de criação";
+        return view('patrimonies.create');
     }
 
 
