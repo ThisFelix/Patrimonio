@@ -14,6 +14,9 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::get('admin', 'AdminController@index')->name('admin.home');
     Route::resource('patrimonies', 'PatrimonyController2')->middleware('auth');
 });
-
-Route::get('/', 'SiteController@index')->name('index');
+Route::get('/', function () { 
+   
+    return view('auth.login'); 
+     
+});
 Auth::routes();
