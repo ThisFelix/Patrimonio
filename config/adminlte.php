@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'title' => '-',
+    'title' => ' - ',
 
-    'title_prefix' => 'Patrimony',
+    'title_prefix' => 'IFSP',
 
-    'title_postfix' => '-',
+    'title_postfix' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Patrimony</b>',
+    'logo' => '<b>IFSP</b>',
 
-    'logo_mini' => '<b>Patrimony</b>',
+    'logo_mini' => '<b>IFSP</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,10 +115,10 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
+            'text'        => 'Equipamentos',
+            'url'         => 'patrimonies',
+            'icon'        => 'laptop',
+            'label'       => '',
             'label_color' => 'success',
         ] /* ,
         'ACCOUNT SETTINGS',
