@@ -82,6 +82,8 @@
                 </div>
                 @endif
             </nav>
+
+            
         </header>
 
         @if(config('adminlte.layout') != 'top-nav')

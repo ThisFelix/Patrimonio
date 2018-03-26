@@ -115,7 +115,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Equipamentos',
+            'text'        => 'Patrimônios',
             'url'         => 'patrimonies',
             'icon'        => 'laptop',
             'label'       => '',
