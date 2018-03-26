@@ -16,6 +16,12 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     
 });
 Route::get('/', function(){ return view('auth.login'); });
+
+
+
+
+
+
 Route::post('/patrimonies/add', ['uses'=>'Admin\PatrimonyController2@add', 'as' => 'patrimonies.add']);
 
 Auth::routes();
