@@ -1,9 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mathe
- * Date: 20/03/2018
- * Time: 21:37
+ * @copyright Created by PhpStorm.
+ * @author mathe
+ * @since 20/03/2018 - 21:37
+ *
  */
 
 namespace App;

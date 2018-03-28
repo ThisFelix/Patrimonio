@@ -7,6 +7,19 @@
 @stop
 
 @section('content')
+    @if(session('flash_message'))
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div align="center" class="alert {{ session('flash_message')['class'] }}">
+                    {{ session('flash_message')['msg'] }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -41,8 +54,8 @@
                                             <td>{{ $patrimony->location }}</td>
                                             <td>{{ $patrimony->image }}</td>
                                             <td>
-                                                <a class="btn btn-default" href="#">Editar</a>
-                                                <a class="btn btn-danger" href="#">Deletar</a>
+                                                <a class="btn btn-default" href="{{ route('patrimonies.edition', $patrimony->id) }}">Editar</a>
+                                                <a class="btn btn-danger" href="javascript:(confirm('Deletar registro?') ? window.location.href = '{{ route('patrimonies.delete', $patrimony->id)}}' : false)">Deletar</a>
                                             </td>
                                         </tr>
                                     @endforeach            
