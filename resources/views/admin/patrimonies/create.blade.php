@@ -29,7 +29,7 @@
                         <li class="active">Adicionar</li>
                     </ol>
                     <div class="panel-body">
-                        <form action="{{ route('patrimonies.add') }}" method="POST">
+                        <form action="{{ route('patrimonies.add') }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="nome">Nome</label>

@@ -52,7 +52,12 @@
                                             <td>{{ $patrimony->model }}</td>
                                             <td>{{ $patrimony->description }}</td>
                                             <td>{{ $patrimony->location }}</td>
-                                            <td>{{ $patrimony->image }}</td>
+                                            <td>
+                                                @if($patrimony->image != null && $patrimony->image != '')
+                                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive">
+                                                @endif
+
+                                            </td>
                                             <td>
                                                 <a class="btn btn-default" href="{{ route('patrimonies.edition', $patrimony->id) }}">Editar</a>
                                                 <a class="btn btn-danger" href="javascript:(confirm('Deletar registro?') ? window.location.href = '{{ route('patrimonies.delete', $patrimony->id)}}' : false)">Deletar</a>

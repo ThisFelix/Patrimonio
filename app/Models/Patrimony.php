@@ -10,4 +10,8 @@ class Patrimony extends Model
     protected $guarded = ['id'];
     protected $table = 'patrimonies';
     public $timestamps = false;
+
+    public function setImage($image){
+    	return null;
+    }
 }
