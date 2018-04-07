@@ -43,7 +43,7 @@ class ResetPassword extends Notification
         return (new MailMessage)
             ->subject('Redefinição de Senha')
             ->greeting('Olá!')
-            ->line('Se você recebeu este e-mail, é porquê solicitou a redefinição de senha')
+            ->line('Você recebeu este e-mail porque solicitou a Redefinição de senha. ')
             ->action('REDEFINIR SENHA', route('password.reset', $this->token.'?email='.$_POST['email']))
             ->line('Caso não tenha solicitado, por favor, ignore.')
             ->markdown('vendor.notifications.email');
