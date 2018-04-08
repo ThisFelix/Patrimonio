@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = redirect('/')->back()->with('referrer', true);;
 
     /**
      * Create a new controller instance.
