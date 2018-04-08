@@ -86,7 +86,7 @@ return [
 
     'username' => env('MAIL_USERNAME', 'ifsp.patrimonio@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD', '@_Santos1996'),
+    'password' => env('MAIL_PASSWORD', 'password'),
 
     /*
     |--------------------------------------------------------------------------
