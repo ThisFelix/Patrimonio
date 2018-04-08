@@ -19,7 +19,10 @@
 
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
-             @if (strrpos($_SERVER["HTTP_REFERER"], 'password/reset'))
+            <?php
+            $referer = $_SERVER["HTTP_REFERER"];
+            ?> 
+             @if (strrpos($referer, 'password/reset') !== false)
                 <div class="alert alert-success">
                     Senha redefinida com sucesso!
                 </div>
