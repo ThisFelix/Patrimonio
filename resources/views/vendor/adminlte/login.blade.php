@@ -19,7 +19,7 @@
 
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
-            @if (strpos(URL::previous(), 'password/reset') !== 0)
+            @if (strpos(URL::previous(), 'password/reset'))
                 <div class="alert alert-success">
                     Senha redefinida com sucesso!
                 </div>
