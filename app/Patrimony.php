@@ -15,7 +15,7 @@ class Patrimony extends Authenticatable
     use Notifiable;
     public $timestamps = false;
 
-    protected $fillable = ['name','category','model','description', 'image', 'location'];
+    protected $fillable = ['name','category','model','description', 'image', 'location', 'serialNumber', 'patrimonyNumber'];
     protected $hidden = ['id'];
     /**
      * The attributes that should be hidden for arrays.
