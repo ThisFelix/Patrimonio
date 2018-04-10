@@ -52,7 +52,7 @@ class PatrimonyController extends Controller
 
         if( $request->hasFile('image') && $request->file('image')->isValid()){
                 
-            $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.'.$request->image->extension();
+            $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.png';
 
             $request->image->storeAs('patrimony', $imgName);
 
@@ -94,7 +94,23 @@ class PatrimonyController extends Controller
      * */
     public function edit(Request $request, $id){
         \App\Patrimony::find($id)->update($request->all());
-     
+
+        $imgName = null;
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+
+            $patrimony = \App\Patrimony::find($id); 
+                
+            $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.png';
+
+            $request->image->storeAs('patrimony', $imgName);
+
+            $patrimony->image = $imgName;
+
+            $patrimony->save();
+
+        }
+         
         return redirect()->route('patrimonies.index')->with('flash_message', [
             "msg" => "Cliente atualizado com sucesso!",
             "class" => "alert-success"

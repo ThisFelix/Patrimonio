@@ -120,7 +120,23 @@ return [
             'icon'        => 'laptop',
             'label'       => '',
             'label_color' => 'success',
-        ] /* ,
+        ],
+        [
+            'text'    => 'Espaços',
+            'icon'    => 'map-marker',
+            'submenu' => [
+                [
+                    'text' => 'Salas',
+                    'url'  => '#',
+                    'icon' => ''
+                ],
+                [
+                    'text' => 'Prédios',
+                    'url'  => '#',
+                    'icon' => ''
+                ]
+             ]
+         ] /* ,
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
@@ -217,8 +233,8 @@ return [
     */
 
     'plugins' => [
-        'datatables' => false,
-        'select2'    => false,
+        'datatables' => true,
+        'select2'    => true,
         'chartjs'    => false,
     ],
 ];

@@ -16,9 +16,10 @@
                         <li class="active">Editar</li>
                     </ol>
                     <div class="panel-body">
-                        <form action="{{ route('patrimonies.edit', $patrimony->id) }}" method="POST">
+                        <form action="{{ route('patrimonies.edit', $patrimony->id) }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="put">
+                            <input type="hidden" name="enctype" value="multipart/form-data">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required="" value="{{$patrimony->name}}">
@@ -40,8 +41,13 @@
                                 <input type="text" class="form-control" name="location" placeholder="Nº da Sala" required="" value="{{$patrimony->location}}">
                             </div>
                             <div class="form-group">
+                                @if($patrimony->image != null && $patrimony->image != '')
+                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 300px; height: auto;">
+                                @endif
+                            </div>
+                            <div class="form-group">
                                 <label for="image">Imagem</label>
-                                <input type="file" class="form-control" name="image" placeholder="Imagem" value="{{$patrimony->image}}">
+                                <input type="file" class="form-control" name="image" placeholder="Imagem">
                             </div>
                             <button type="submit" class="btn btn-success">Salvar</button>
                         </form>
