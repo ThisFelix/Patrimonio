@@ -54,7 +54,7 @@
                                             <td>{{ $patrimony->location }}</td>
                                             <td>
                                                 @if($patrimony->image != null && $patrimony->image != '')
-                                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive">
+                                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 100px; height: auto;">
                                                 @endif
 
                                             </td>
