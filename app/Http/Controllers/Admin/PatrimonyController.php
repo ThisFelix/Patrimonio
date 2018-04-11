@@ -112,7 +112,7 @@ class PatrimonyController extends Controller
         }
          
         return redirect()->route('patrimonies.index')->with('flash_message', [
-            "msg" => "Cliente atualizado com sucesso!",
+            "msg" => "Patrimônio atualizado com sucesso!",
             "class" => "alert-success"
         ]);
 

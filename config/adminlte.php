@@ -127,12 +127,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Salas',
-                    'url'  => '#',
+                    'url'  => 'rooms',
                     'icon' => ''
                 ],
                 [
                     'text' => 'Prédios',
-                    'url'  => '#',
+                    'url'  => 'buildings',
                     'icon' => ''
                 ]
              ]
