@@ -35,6 +35,7 @@
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <th>#</th>
+                                    <th>Status</th>
                                     <th>Nome</th>
                                     <th>Categoria</th>
                                     <th>Modelo</th>
@@ -47,14 +48,15 @@
                                     @foreach($patrimonies as $patrimony)
                                         <tr>
                                             <th scope="row">{{ $patrimony->id }}</td>
+                                            <td>@if($patrimony->status == 1) Disponivel @elseif($patrimony->status == 2) Indisponivel @endif</td>
                                             <td>{{ $patrimony->name }}</td>
                                             <td>{{ $patrimony->category }}</td>
                                             <td>{{ $patrimony->model }}</td>
                                             <td>{{ $patrimony->description }}</td>
-                                            <td>{{ $patrimony->location }}</td>
+                                            <td>{{ $patrimony->location_name->building_name->name.' '.$patrimony->location_name->number }}</td>
                                             <td>
                                                 @if($patrimony->image != null && $patrimony->image != '')
-                                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 100px; height: auto;">
+                                                    <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 100px; max-height: 100px;">
                                                 @endif
 
                                             </td>

@@ -33,12 +33,24 @@
                                 <input type="text" class="form-control" name="model" placeholder="Modelo" required="" value="{{$patrimony->model}}">
                             </div>
                             <div class="form-group">
+                                <label for="model">Número de Série</label>
+                                <input type="text" class="form-control" name="serialNumber" placeholder="Número de Série" required="" value="{{$patrimony->serialNumber}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Número de Patrimônio</label>
+                                <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="" value="{{$patrimony->patrimonyNumber}}">
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Descrição</label>
                                 <input type="text" class="form-control" name="description" placeholder="Descrição" required="" value="{{$patrimony->description}}">
                             </div>
                             <div class="form-group">
                                 <label for="local">Local</label>
-                                <input type="text" class="form-control" name="location" placeholder="Nº da Sala" required="" value="{{$patrimony->location}}">
+                                <select class="form-control" name="location">
+                                    @foreach($rooms as $room)
+                                        <option value="{{ $room->id }}" @if($room->id == $patrimony->location) selected @endif>Prédio: {{ $room->building_name->name }} - Sala: {{ $room->number }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 @if($patrimony->image != null && $patrimony->image != '')

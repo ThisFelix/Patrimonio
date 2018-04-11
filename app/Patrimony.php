@@ -22,4 +22,13 @@ class Patrimony extends Authenticatable
      *
      * @var array
      */
+
+     
+    /** 
+     *  Get building name
+     *  @return string
+     * */
+    public function location_name(){
+        return $this->belongsTo('App\Room', 'location');
+    }
 }
