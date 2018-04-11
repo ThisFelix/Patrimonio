@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Patrimony extends Model
+class Building extends Model
 {
     protected $fillable = ['name','description'];
     protected $guarded = ['id'];

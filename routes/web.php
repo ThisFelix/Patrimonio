@@ -50,5 +50,20 @@ Route::put('/buildings/edit/{id}', ['uses'=>'Admin\BuildingController@edit', 'as
 //Delete Building Route
 Route::get('/buildings/delete/{id}', ['uses'=>'Admin\BuildingController@delete', 'as' => 'buildings.delete']);
 
+
+/**
+ * 
+ * Rooms Routes
+ * 
+ * @author: Márcio Isaque
+ * 
+ */
+//Add Room
+Route::post('/rooms/add', ['uses'=>'Admin\RoomController@add', 'as' => 'rooms.add']);
+//Edition Room Routes
+Route::get('/rooms/edition/{id}', ['uses'=>'Admin\RoomController@edition', 'as' => 'rooms.edition']);
+Route::put('/rooms/edit/{id}', ['uses'=>'Admin\RoomController@edit', 'as' => 'rooms.edit']);
+//Delete Room Route
+Route::get('/rooms/delete/{id}', ['uses'=>'Admin\RoomController@delete', 'as' => 'rooms.delete']);
 //
 Auth::routes();

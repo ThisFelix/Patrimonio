@@ -1,10 +1,33 @@
 <?php
+/**
+ * @copyright Created by PhpStorm.
+ * 
+ * @author Márcio Isaque
+ *
+ */
 
 namespace App;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Room extends Model
+class Room extends Authenticatable
 {
-    //
+    use Notifiable;
+    public $timestamps = false;
+
+    protected $fillable = ['name', 'number', 'description', 'building'];
+    protected $hidden = ['id'];
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+
+     /** 
+     *  Get building name
+     *  @return string
+     * */
+    public function building_name(){
+        return $this->belongsTo('App\Building', 'building');
+    }
 }
