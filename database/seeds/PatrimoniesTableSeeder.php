@@ -11,14 +11,14 @@ class PatrimoniesTableSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('patrimonies')->insert([
+        DB::table('patrimonies')->insert([
             'name' => 'Monitor',
             'category' => 'Periférico',
             'model' => 'LG A4325',
             'description' => 'Monitor LG 21',
             'image' => 'img.jpg',
             'location' => 'F2'
-        ]);*/
+        ]);
 
         factory('App\Patrimony', 15)->create();
     }
