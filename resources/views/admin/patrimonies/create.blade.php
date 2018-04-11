@@ -44,12 +44,20 @@
                                 <input type="text" class="form-control" name="model" placeholder="Modelo" required="">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descrição</label>
-                                <input type="text" class="form-control" name="description" placeholder="Descrição" required="">
+                                <label for="model">Número de Série</label>
+                                <input type="text" class="form-control" name="serialNumber" placeholder="Número de Série" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Número de Patrimônio</label>
+                                <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="">
                             </div>
                             <div class="form-group">
                                 <label for="local">Local</label>
-                                <input type="text" class="form-control" name="location" placeholder="Nº da Sala" required="">
+                                <select class="form-control" name="location">
+                                    @foreach($rooms as $room)
+                                        <option value="{{ $room->id }}">Prédio: {{ $room->building_name->name }} - Sala: {{ $room->number }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="image">Imagem</label>

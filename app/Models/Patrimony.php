@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patrimony extends Model
 {
-    protected $fillable = ['name','category','model','description', 'image', 'location'];
+    protected $fillable = ['name','category','model','description', 'image', 'location', 'serialNumber', 'patrimonyNumber'];
     protected $guarded = ['id'];
     protected $table = 'patrimonies';
     public $timestamps = false;

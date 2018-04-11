@@ -1,8 +1,8 @@
 <?php
 /**
  * @copyright Created by PhpStorm.
- * @author mathe
- * @since 20/03/2018 - 21:37
+ * 
+ * @author Márcio Isaque
  *
  */
 
@@ -10,12 +10,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Patrimony extends Authenticatable
+class Room extends Authenticatable
 {
     use Notifiable;
     public $timestamps = false;
 
-    protected $fillable = ['name','category','model','description', 'image', 'location', 'serialNumber', 'patrimonyNumber'];
+    protected $fillable = ['name', 'number', 'description', 'building'];
     protected $hidden = ['id'];
     /**
      * The attributes that should be hidden for arrays.
@@ -23,12 +23,11 @@ class Patrimony extends Authenticatable
      * @var array
      */
 
-     
-    /** 
+     /** 
      *  Get building name
      *  @return string
      * */
-    public function location_name(){
-        return $this->belongsTo('App\Room', 'location');
+    public function building_name(){
+        return $this->belongsTo('App\Building', 'building');
     }
 }

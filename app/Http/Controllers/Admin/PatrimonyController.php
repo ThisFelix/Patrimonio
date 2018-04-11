@@ -35,7 +35,8 @@ class PatrimonyController extends Controller
      *  @return void
      * */
     public function create(){
-        return view('admin.patrimonies.create');
+        $rooms = \App\Room::all();
+        return view('admin.patrimonies.create', compact('rooms'));
     }
 
     /** 
@@ -75,6 +76,7 @@ class PatrimonyController extends Controller
      * */
     public function edition($id){
         $patrimony = \App\Patrimony::find($id);
+        $rooms = \App\Room::all();
         
         if(!$patrimony){        
             return redirect()->route('patrimonies.create')->with('flash_message', [
@@ -83,7 +85,7 @@ class PatrimonyController extends Controller
             ]);
         }
 
-        return view('admin.patrimonies.edition', compact('patrimony'));
+        return view('admin.patrimonies.edition', compact('patrimony'), compact('rooms'));
     }
 
     /** 
@@ -112,7 +114,7 @@ class PatrimonyController extends Controller
         }
          
         return redirect()->route('patrimonies.index')->with('flash_message', [
-            "msg" => "Cliente atualizado com sucesso!",
+            "msg" => "Patrimônio atualizado com sucesso!",
             "class" => "alert-success"
         ]);
 
