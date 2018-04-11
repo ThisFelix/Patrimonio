@@ -14,9 +14,9 @@ class AlterPatrimoniesTable extends Migration
     public function up()
     {
         Schema::table('patrimonies', function (Blueprint $table) {
-            $table->string('patrimonyNumber')->nullable();
-            $table->string('serialNumber')->nullable();
-            $table->integer('status')->default(1)->nullable();
+            $table->string('serialNumber')->nullable()->after('model');
+            $table->string('patrimonyNumber')->nullable()->after('serialNumber');
+            $table->integer('status')->default(1)->nullable()->after('id');
         });
     }
 

@@ -65,7 +65,7 @@ class RoomController extends Controller
 
         if(!$room){        
             return redirect()->route('rooms.create')->with('flash_message', [
-                "msg" => "Não existe esta sala cadastrado! Deseja cadastrar uma nova sala?",
+                "msg" => "Não existe esta sala cadastrada! Deseja cadastrar uma nova sala?",
                 "class" => "alert-danger"
             ]);
         }
