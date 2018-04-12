@@ -67,3 +67,7 @@ Route::put('/rooms/edit/{id}', ['uses'=>'Admin\RoomController@edit', 'as' => 'ro
 Route::get('/rooms/delete/{id}', ['uses'=>'Admin\RoomController@delete', 'as' => 'rooms.delete']);
 //
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
