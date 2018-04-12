@@ -11,7 +11,7 @@
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
         "doctrine/dbal": "~2.7",
-        "post-install-cmd": [ "ln -sr storage/app/public public/storage" ]
+        "post-install-cmd": "ln -sr storage/app/public public/storage"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
