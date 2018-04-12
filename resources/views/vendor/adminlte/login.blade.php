@@ -28,7 +28,7 @@
 
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
                     <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                           placeholder="{{ @lang('adminlte::adminlte.email') }}">
+                           placeholder="{{ trans('messages.email') }}">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     @if ($errors->has('email'))
                         <span class="help-block">
