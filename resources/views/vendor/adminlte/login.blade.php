@@ -28,7 +28,7 @@
 
                 <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
                     <input type="email" name="email" class="form-control" value="{{ old('email') }}"
-                           placeholder=''.{{ __('messages.welcome')}}.''>
+                           placeholder="{{ trans('adminlte::adminlte.email') }}">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     @if ($errors->has('email'))
                         <span class="help-block">
@@ -36,6 +36,8 @@
                         </span>
                     @endif
                 </div>
+                <?php echo trans('messages.welcome'); ?>
+
                 <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
                     <input type="password" name="password" class="form-control"
                            placeholder="{{ trans('adminlte::adminlte.password') }}">
