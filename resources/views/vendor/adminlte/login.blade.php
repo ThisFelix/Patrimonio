@@ -9,10 +9,10 @@
 @stop
 
 @section('body_class', 'login-page')
-
 @section('body')
     <div class="login-box">
-        <div class="login-logo">
+        <div class="login-logo"> <?php
+phpinfo(); ?>
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
         <!-- /.login-logo -->
