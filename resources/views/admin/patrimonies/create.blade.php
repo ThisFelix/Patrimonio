@@ -52,6 +52,10 @@
                                 <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="">
                             </div>
                             <div class="form-group">
+                                <label for="description">Descrição</label>
+                                <input type="text" class="form-control" name="description" placeholder="Descrição" required="">
+                            </div>
+                            <div class="form-group">
                                 <label for="local">Local</label>
                                 <select class="form-control" name="location">
                                     @foreach($rooms as $room)

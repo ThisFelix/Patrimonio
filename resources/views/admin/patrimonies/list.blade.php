@@ -39,6 +39,8 @@
                                     <th>Nome</th>
                                     <th>Categoria</th>
                                     <th>Modelo</th>
+                                    <th>Número de Série</th>
+                                    <th>Número de Patrimônio</th>
                                     <th>Descrição</th>
                                     <th>Local</th>
                                     <th>Imagem</th>
@@ -52,6 +54,8 @@
                                             <td>{{ $patrimony->name }}</td>
                                             <td>{{ $patrimony->category }}</td>
                                             <td>{{ $patrimony->model }}</td>
+                                            <td>{{ $patrimony->serialNumber }}</td>
+                                            <td>{{ $patrimony->patrimonyNumber }}</td>
                                             <td>{{ $patrimony->description }}</td>
                                             <td>{{ $patrimony->location_name->building_name->name.' '.$patrimony->location_name->number }}</td>
                                             <td>
