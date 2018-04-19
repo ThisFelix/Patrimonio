@@ -52,6 +52,10 @@
                                 <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="">
                             </div>
                             <div class="form-group">
+                                <label for="description">Quantidade</label>
+                                <input type="number" class="form-control" name="numberOfPatrimony" placeholder="Quantidade" required="" value="1">
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Descrição</label>
                                 <input type="text" class="form-control" name="description" placeholder="Descrição" required="">
                             </div>

@@ -46,22 +46,35 @@ class PatrimonyController extends Controller
      *  @return void
      * */
     public function add(Request $request){
-        $patrimony = \App\Patrimony::create($request->all());
-
-        $imgName = null;
-
-
-        if( $request->hasFile('image') && $request->file('image')->isValid()){
-                
-            $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.png';
-
-            $request->image->storeAs('patrimony', $imgName);
-
-        }
-
-        $patrimony->image = $imgName;
-        $patrimony->save();
         
+        $num = $request->numberOfPatrimony;
+
+
+        for($cont = 0; $cont < $num; $cont++){
+
+            $patrimony = \App\Patrimony::create($request->all());
+
+            if ($cont > 0) {
+                $patrimony->serialNumber = '';
+            }
+
+            $patrimony->patrimonyNumber += $cont;
+
+            $imgName = null;
+
+
+            if( $request->hasFile('image') && $request->file('image')->isValid()){
+                    
+                $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.png';
+
+                $request->image->storeAs('patrimony', $imgName);
+
+            }
+
+            $patrimony->image = $imgName;
+            $patrimony->save();
+        }
+            
 
         return redirect()->route('patrimonies.create')->with('flash_message', [
             "msg" => "Patrimônio adicionado com sucesso!",
