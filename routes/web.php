@@ -32,6 +32,7 @@ Route::post('/patrimonies/add', ['uses'=>'Admin\PatrimonyController@add', 'as' =
 //Edition Patrimony Routes
 Route::get('/patrimonies/edition/{id}', ['uses'=>'Admin\PatrimonyController@edition', 'as' => 'patrimonies.edition']);
 Route::put('/patrimonies/edit/{id}', ['uses'=>'Admin\PatrimonyController@edit', 'as' => 'patrimonies.edit']);
+Route::post('/patrimonies/allocate', ['uses'=>'Admin\PatrimonyController@allocate', 'as' => 'patrimonies.allocate']);
 //Delete Patrimony Route
 Route::get('/patrimonies/delete/{id}', ['uses'=>'Admin\PatrimonyController@delete', 'as' => 'patrimonies.delete']);
 

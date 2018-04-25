@@ -29,7 +29,19 @@
                         </ol>
                         <div class="panel-body">
                         <p>
-                            <a href="{{ route('patrimonies.create') }}" class="btn btn-success">Adicionar Patrimônio</a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success">Opções</button>
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('patrimonies.create') }}">Adicionar Patrimônio</a></li>
+                                <li><a data-toggle="modal" data-target="#modal-success">Alocar Lote</a></li>
+                            </ul>
+                        </div>
+                            
+                            
                         </p>
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered">
@@ -81,5 +93,54 @@
             </div>
         </div>
     </div>
+
     
+    <div class="modal modal-success fade" id="modal-success">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title text-center">Alocação de Patrimônios</h3>
+                </div>
+                <form action="{{ route('patrimonies.allocate') }}" method="POST">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="row my-4">
+                        <div class="col-sm-12 my-4">
+                            <div class="row mt-4">
+                                <div class="col-sm-12">                                        
+                                    <label for="patrimonies">Locais Disponíveis</label>
+                                    <select class="form-control" name="location" required="">
+                                        <option value="" selected>Escolha um local</option>
+                                        @foreach($rooms as $room)
+                                            <option value="{{ $room->id }}">Prédio: {{ $room->building_name->name }} - Sala: {{ $room->number }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top: 10px;">
+                                <div class="col-sm-6">
+                                    <label for="nome">Número inicial</label>
+                                    <input type="number" class="form-control" name="init_number" placeholder="0" min="0" required="">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="nome">Número final</label>
+                                    <input type="number" class="form-control" name="final_number" placeholder="0" min="0" required="">
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="modal-footer">                    
+                    <button type="submit" class="btn btn-outline">Alocar Patrimônios</button>                               
+                    </form>
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 @stop

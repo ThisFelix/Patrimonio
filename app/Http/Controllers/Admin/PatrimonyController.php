@@ -27,7 +27,8 @@ class PatrimonyController extends Controller
 
     public function index(){
         $patrimonies = \App\Patrimony::paginate(10);
-        return view('admin.patrimonies.list', compact('patrimonies'));
+        $rooms = \App\Room::all();
+        return view('admin.patrimonies.list', compact('patrimonies'), compact('rooms'));
     }
 
     /** 
@@ -148,5 +149,31 @@ class PatrimonyController extends Controller
         ]);
 
 
+    }
+
+    /**
+     * 
+     * Allocate function
+     * @param array
+     * @return void
+     */
+    public function allocate(Request $request){
+        $init = $request->init_number;
+        $final = $request->final_number;
+        $location = $request->location;
+
+        while($init <= $final){
+            $patrimonie_number = $init;
+
+            \App\Patrimony::where('patrimonyNumber', $patrimonie_number)->update(['location' => $location]);
+
+            
+            $init++;
+        }
+
+        return redirect()->route('patrimonies.index')->with('flash_message', [
+            "msg" => "Os Patrimônios $request->init_number ao $final foram alocados!",
+            "class" => "alert-success"
+        ]);
     }
 }
