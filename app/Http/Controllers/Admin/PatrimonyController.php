@@ -15,6 +15,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\PatrimonyRepository;
+
 
 class PatrimonyController extends Controller
 {
@@ -47,36 +49,28 @@ class PatrimonyController extends Controller
      *  @return void
      * */
     public function add(Request $request){
+
+        $PatrimonyRepository = new PatrimonyRepository();
         
         $num = $request->numberOfPatrimony;
 
 
-        for($cont = 0; $cont < $num; $cont++){
+        $patrimony = \App\Patrimony::create($request->all());
+        $PatrimonyRepository->saveImage($patrimony,$request);
+        $patrimony->save();
+
+
+        for($cont = 1; $cont < $num; $cont++){
 
             $patrimony = \App\Patrimony::create($request->all());
-
-            if ($cont > 0) {
-                $patrimony->serialNumber = '';
-            }
-
+            $patrimony->serialNumber = '';
             $patrimony->patrimonyNumber += $cont;
-
-            $imgName = null;
-
-
-            if( $request->hasFile('image') && $request->file('image')->isValid()){
-                    
-                $imgName = 'patrimony'.$patrimony->id.$patrimony->name.'.png';
-
-                $request->image->storeAs('patrimony', $imgName);
-
-            }
-
-            $patrimony->image = $imgName;
+            $PatrimonyRepository->saveImage($patrimony,$request);
             $patrimony->save();
+
+        
         }
             
-
         return redirect()->route('patrimonies.create')->with('flash_message', [
             "msg" => "Patrimônio adicionado com sucesso!",
             "class" => "alert-success"
