@@ -15,7 +15,7 @@ class Room extends Authenticatable
     use Notifiable;
     public $timestamps = false;
 
-    protected $fillable = ['name', 'number', 'description', 'building'];
+    protected $fillable = ['name', 'number', 'description', 'building','sector'];
     protected $hidden = ['id'];
     /**
      * The attributes that should be hidden for arrays.
@@ -29,5 +29,10 @@ class Room extends Authenticatable
      * */
     public function building_name(){
         return $this->belongsTo('App\Building', 'building');
+    }
+
+
+    public function sector_name(){
+        return $this->belongsTo('App\Models\Sector', 'sector');
     }
 }

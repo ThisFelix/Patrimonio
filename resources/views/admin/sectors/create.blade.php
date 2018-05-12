@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title_postfix', 'Prédios')
+@section('title_postfix', 'Setores')
 
 @section('content_header')
-    <h1>Adicionar Sala</h1>
+    <h1>Adicionar Setor</h1>
 @stop
 
 @section('content')
@@ -25,40 +25,33 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <ol class="breadcrumb panel-heading">
-                        <li><a href="{{ route('rooms.index') }}">Salas</a></li>
+                        <li><a href="{{ route('sectors.index') }}">Setores</a></li>
                         <li class="active">Adicionar</li>
                     </ol>
                     <div class="panel-body">
-                        <form action="{{ route('rooms.add') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('sectors.add') }}" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required="">
                             </div>
                             <div class="form-group">
-                                <label for="nome">Número</label>
-                                <input type="text" class="form-control" name="number" placeholder="Número da Sala" required="">
+                                <label for="nome">Telefone do setor</label>
+                                <input type="text" class="form-control" name="sectorPhone" placeholder="Telefone do setor" required="">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descrição</label>
-                                <input type="text" class="form-control" name="description" placeholder="Descrição" required="">
+                                <label for="description">Email do setor</label>
+                                <input type="email" class="form-control" name="sectorEmail" placeholder="Email do setor" required="">
                             </div>
                             <div class="form-group">
-                                <label for="description">Prédio</label>
-                                <select class="form-control" name="building">
-                                    @foreach($buildings as $building)
-                                        <option value="{{ $building->id }}">{{ $building->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="description">Responsável</label>
+                                <input type="text" class="form-control" name="responsible" placeholder="Responsável" required="">
                             </div>
                             <div class="form-group">
-                                <label for="description">Setor</label>
-                                <select class="form-control" name="sector">
-                                    @foreach($sectors as $sector)
-                                        <option value="{{ $sector->id }}">{{ $sector->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="description">Email do Responsável</label>
+                                <input type="email" class="form-control" name="responsibleEmail" placeholder="Email do Responsável" required="">
                             </div>
+                            
                             <button type="submit" class="btn btn-success">Adicionar</button>
                         </form>
                     </div>

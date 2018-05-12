@@ -36,7 +36,8 @@ class RoomController extends Controller
      * */
     public function create(){
         $buildings = \App\Building::all();
-        return view('admin.rooms.create', compact('buildings'));
+        $sectors = \App\Models\Sector::all();
+        return view('admin.rooms.create', compact('buildings'), compact('sectors'));
     }
 
     /** 
@@ -62,6 +63,7 @@ class RoomController extends Controller
     public function edition($id){
         $room = \App\Room::find($id);
         $buildings = \App\Building::all();
+        $sectors = \App\Models\Sector::all();
 
         if(!$room){        
             return redirect()->route('rooms.create')->with('flash_message', [
@@ -70,7 +72,7 @@ class RoomController extends Controller
             ]);
         }
 
-        return view('admin.rooms.edition', compact('room'), compact('buildings'));
+        return view('admin.rooms.edition', compact('room'), compact('buildings','sectors'));
     }
 
     /** 

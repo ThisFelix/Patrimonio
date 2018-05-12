@@ -15,7 +15,7 @@ class Patrimony extends Authenticatable
     use Notifiable;
     public $timestamps = false;
 
-    protected $fillable = ['name','category','model','description', 'image', 'location', 'serialNumber', 'patrimonyNumber'];
+    protected $fillable = ['name','category','model','description', 'image', 'location', 'serialNumber', 'patrimonyNumber', 'sector'];
     protected $hidden = ['id'];
     /**
      * The attributes that should be hidden for arrays.
@@ -30,5 +30,8 @@ class Patrimony extends Authenticatable
      * */
     public function location_name(){
         return $this->belongsTo('App\Room', 'location');
+    }
+    public function sector_name(){
+        return $this->belongsTo('App\Models\Sector', 'sector');
     }
 }

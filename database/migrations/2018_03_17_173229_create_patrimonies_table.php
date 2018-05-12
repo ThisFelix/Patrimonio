@@ -21,6 +21,7 @@ class CreatePatrimoniesTable extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('location')->nullable();
+            $table->string('sector')->nullable();
         });
     }
 

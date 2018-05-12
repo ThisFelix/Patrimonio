@@ -39,6 +39,15 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="description">Setor</label>
+                                <select class="form-control" name="sector">
+                                    @foreach($sectors as $sector)
+                                        <option value="{{ $sector->id }}" @if($sector->id == $room->sector) selected @endif">{{ $sector->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-success">Adicionar</button>
                         </form>
                     </div>

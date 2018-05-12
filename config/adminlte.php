@@ -136,7 +136,13 @@ return [
                     'icon' => ''
                 ]
              ]
-         ] /* ,
+         ],[
+            'text'        => 'Setores',
+            'url'         => 'sectors',
+            'icon'        => 'users',
+            'label'       => '',
+            'label_color' => 'success',
+        ] /* ,
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

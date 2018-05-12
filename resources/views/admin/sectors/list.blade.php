@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title_postfix', 'Salas')
+@section('title_postfix', 'Setores')
 
 @section('content_header')
-    <h1>Lista de Salas</h1>
+    <h1>Lista de Setores</h1>
 @stop
 
 @section('content')
@@ -25,35 +25,35 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                         <ol class="breadcrumb panel-heading">
-                            <li class="active">Salas</li>
+                            <li class="active">Setores</li>
                         </ol>
                         <div class="panel-body">
                         <p>
-                            <a href="{{ route('rooms.create') }}" class="btn btn-success">Adicionar Sala</a>
+                            <a href="{{ route('sectors.create') }}" class="btn btn-success">Adicionar Setor</a>
                         </p>
                         <div class="table-responsive">
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <th>#</th>
                                     <th>Nome</th>
-                                    <th>Número</th>
-                                    <th>Descrição</th>
-                                    <th>Prédio</th>
-                                    <th>Setor</th>
+                                    <th>Telefone do Setor</th>
+                                    <th>Email do Setor</th>
+                                    <th>Responsável</th>
+                                    <th>Email do responsável</th>
                                     <th>Ação</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($rooms as $room)
+                                    @foreach($sectors as $sector)
                                         <tr>
-                                            <th scope="row">{{ $room->id }}</th>
-                                            <td>{{ $room->name }}</td>
-                                            <td>{{ $room->number }}</td>
-                                            <td>{{ $room->description }}</td>
-                                            <td>{{ $room->building_name->name }}</td>
-                                            <td>{{ $room->sector_name->name }}</td>
+                                            <th scope="row">{{ $sector->id }}</th>
+                                            <td>{{ $sector->name }}</td>
+                                            <td>{{ $sector->sectorPhone }}</td>
+                                            <td>{{ $sector->sectorEmail }}</td>
+                                            <td>{{ $sector->responsible }}</td>
+                                            <td>{{ $sector->responsibleEmail }}</td>
                                             <td>
-                                                <a class="btn btn-default" href="{{ route('rooms.edition', $room->id) }}">Editar</a>
-                                                <a class="btn btn-danger" href="javascript:(confirm('Deletar registro?') ? window.location.href = '{{ route('rooms.delete', $room->id)}}' : false)">Deletar</a>
+                                                <a class="btn btn-default" href="{{ route('sectors.edition', $sector->id) }}">Editar</a>
+                                                <a class="btn btn-danger" href="javascript:(confirm('Deletar registro?') ? window.location.href = '{{ route('sectors.delete', $sector->id)}}' : false)">Deletar</a>
                                             </td>
                                         </tr>
                                     @endforeach 
@@ -61,7 +61,7 @@
                             </table>
                         </div>
                         <div align="center">
-                            {!! $rooms->links() !!}
+                            {!! $sectors->links() !!}
                         </div>
                     </div>
                 </div>

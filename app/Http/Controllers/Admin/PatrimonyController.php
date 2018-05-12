@@ -39,7 +39,8 @@ class PatrimonyController extends Controller
      * */
     public function create(){
         $rooms = \App\Room::all();
-        return view('admin.patrimonies.create', compact('rooms'));
+        $sectors = \App\Models\Sector::all();
+        return view('admin.patrimonies.create', compact('rooms','sectors'));
     }
 
     /** 
@@ -85,6 +86,7 @@ class PatrimonyController extends Controller
     public function edition($id){
         $patrimony = \App\Patrimony::find($id);
         $rooms = \App\Room::all();
+        $sectors = \App\Models\Sector::all();
         
         if(!$patrimony){        
             return redirect()->route('patrimonies.create')->with('flash_message', [
@@ -93,7 +95,7 @@ class PatrimonyController extends Controller
             ]);
         }
 
-        return view('admin.patrimonies.edition', compact('patrimony'), compact('rooms'));
+        return view('admin.patrimonies.edition', compact('patrimony'), compact('rooms','sectors'));
     }
 
     /** 

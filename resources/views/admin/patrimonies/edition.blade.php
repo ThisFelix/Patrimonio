@@ -53,6 +53,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="local">Setor</label>
+                                <select class="form-control" name="sector">
+                                    @foreach($sectors as $sector)
+                                        <option value="{{ $sector->id }}" @if($sector->id == $patrimony->sector) selected @endif>{{ $sector->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 @if($patrimony->image != null && $patrimony->image != '')
                                     <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 300px; height: auto;">
                                 @endif

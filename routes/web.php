@@ -15,6 +15,7 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::resource('patrimonies', 'PatrimonyController')->middleware('auth');
     Route::resource('rooms', 'RoomController')->middleware('auth');
     Route::resource('buildings', 'BuildingController')->middleware('auth');
+    Route::resource('sectors', 'SectorController')->middleware('auth');
     
 });
 
@@ -72,3 +73,16 @@ Auth::routes();
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+//Add Sector
+Route::post('/sectors/add', ['uses'=>'Admin\SectorController@add', 'as' => 'sectors.add']);
+Route::post('/sectors/create', ['uses'=>'Admin\SectorController@create', 'as' => 'sectors.create']);
+
+Route::get('/sectors/edition/{id}', ['uses'=>'Admin\SectorController@edition', 'as' => 'sectors.edition']);
+Route::put('/sectors/edit/{id}', ['uses'=>'Admin\SectorController@edit', 'as' => 'sectors.edit']);
+
+Route::get('/sectors/delete/{id}', ['uses'=>'Admin\SectorController@delete', 'as' => 'sectors.delete']);

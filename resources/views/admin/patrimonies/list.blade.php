@@ -55,6 +55,7 @@
                                     <th>Número de Patrimônio</th>
                                     <th>Descrição</th>
                                     <th>Local</th>
+                                    <th>Setor</th>
                                     <th>Imagem</th>
                                     <th>Ação</th>
                                 </thead>
@@ -70,6 +71,7 @@
                                             <td>{{ $patrimony->patrimonyNumber }}</td>
                                             <td>{{ $patrimony->description }}</td>
                                             <td>{{ $patrimony->location_name->building_name->name.' '.$patrimony->location_name->number }}</td>
+                                            <td>{{ $patrimony->sector_name->name }}</td>
                                             <td>
                                                 @if($patrimony->image != null && $patrimony->image != '')
                                                     <img src="{{ url('storage/patrimony/'.$patrimony->image) }}" alt="{{ $patrimony->name }}" class="img-responsive" style="max-width: 100px; max-height: 100px;">

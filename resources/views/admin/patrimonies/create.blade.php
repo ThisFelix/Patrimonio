@@ -68,6 +68,14 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="description">Setor</label>
+                                <select class="form-control" name="sector">
+                                    @foreach($sectors as $sector)
+                                        <option value="{{ $sector->id }}">{{ $sector->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="image">Imagem</label>
                                 <input type="file" class="form-control" name="image" placeholder="Imagem">
                             </div>
