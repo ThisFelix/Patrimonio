@@ -44,7 +44,7 @@
                             
                         </p>
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
+                            <table class="table table-hover table-bordered display" id="patrimonies">
                                 <thead>
                                     <th>#</th>
                                     <th>Status</th>
@@ -95,8 +95,6 @@
             </div>
         </div>
     </div>
-
-    
     <div class="modal modal-success fade" id="modal-success">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -145,4 +143,9 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+    @stop
+    @section('adminlte_js')
+    <script src="{{ asset('js/script.js') }}"></script>
+    @stack('js')
+    @yield('js')
 @stop

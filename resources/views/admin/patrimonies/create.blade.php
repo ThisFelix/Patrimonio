@@ -49,11 +49,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Número de Patrimônio</label>
-                                <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="">
-                            </div>
+                                <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="" id="InitialNumber">
+			    </div>
                             <div class="form-group">
                                 <label for="description">Quantidade</label>
-                                <input type="number" class="form-control" name="numberOfPatrimony" placeholder="Quantidade" required="" value="1">
+                                <input type="number" class="form-control" name="numberOfPatrimony" placeholder="Quantidade" required="" value="1" id="quantity">
                             </div>
                             <div class="form-group">
                                 <label for="description">Descrição</label>
