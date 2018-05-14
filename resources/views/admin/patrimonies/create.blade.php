@@ -46,17 +46,19 @@
                             <div class="form-group">
                                 <label for="model">Número de Série</label>
                                 <input type="text" class="form-control" name="serialNumber" placeholder="Número de Série" required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Número de Patrimônio</label>
-                                <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio" required="" id="InitialNumber">
+			    </div>
+                                <div class="form-group">
+                                  <label for="description">Número de Patrimônio Inicial</label>
+                                  <input type="text" class="form-control" name="patrimonyNumber" placeholder="Número de Patrimônio Inicial" required="" id="InitialNumber">
+				</div>
+                            <div class="patrimonyNumbers">
 			    </div>
                             <div class="form-group">
                                 <label for="description">Quantidade</label>
-                                <input type="number" class="form-control" name="numberOfPatrimony" placeholder="Quantidade" required="" value="1" id="quantity">
+                         	<input type="number" class="form-control" name="numberOfPatrimony" placeholder="Quantidade" required="" value="1" id="quantity">
                             </div>
                             <div class="form-group">
-                                <label for="description">Descrição</label>
+                               <label for="description">Descrição</label>
                                 <input type="text" class="form-control" name="description" placeholder="Descrição" required="">
                             </div>
                             <div class="form-group">
@@ -86,5 +88,10 @@
             </div>
         </div>
     </div>
-    
 @stop
+ @section('adminlte_js')
+    <script src="{{ asset('js/script.js') }}"></script>
+    @stack('js')
+    @yield('js')
+@stop
+
