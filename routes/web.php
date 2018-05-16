@@ -16,6 +16,7 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::resource('rooms', 'RoomController')->middleware('auth');
     Route::resource('buildings', 'BuildingController')->middleware('auth');
     Route::resource('sectors', 'SectorController')->middleware('auth');
+    Route::resource('reports', 'ReportController')->middleware('auth');
     
 });
 
@@ -86,3 +87,17 @@ Route::get('/sectors/edition/{id}', ['uses'=>'Admin\SectorController@edition', '
 Route::put('/sectors/edit/{id}', ['uses'=>'Admin\SectorController@edit', 'as' => 'sectors.edit']);
 
 Route::get('/sectors/delete/{id}', ['uses'=>'Admin\SectorController@delete', 'as' => 'sectors.delete']);
+
+
+
+/**
+ * 
+ * Reports Routes
+ * 
+ * @author: Márcio Isaque
+ * 
+ */
+//Sector Report
+Route::get('/reports/sector/{id}', ['uses'=>'Admin\ReportController@sectorReport', 'as' => 'reports.sector']);
+//Room Report
+Route::get('/reports/room/{id}', ['uses'=>'Admin\ReportController@roomReport', 'as' => 'reports.room']);
