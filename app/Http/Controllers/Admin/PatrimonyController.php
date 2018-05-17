@@ -28,7 +28,7 @@ class PatrimonyController extends Controller
      * */
 
     public function index(){
-        $patrimonies = \App\Patrimony::paginate(10);
+        $patrimonies = \App\Patrimony::all();
         $rooms = \App\Room::all();
         return view('admin.patrimonies.list', compact('patrimonies'), compact('rooms'));
     }

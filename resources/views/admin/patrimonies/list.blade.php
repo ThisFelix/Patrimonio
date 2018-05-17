@@ -87,9 +87,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div align="center">
-                            {!! $patrimonies->links() !!}
-                        </div>
+                        
                     </div>
                 </div>
             </div>
