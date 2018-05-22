@@ -20,6 +20,7 @@ $factory->define(App\Patrimony::class, function (Faker $faker) {
         'model' => $faker->company,
         'description' => $faker->colorName,
         'image' => $faker->imageUrl,
-        'location' => $faker->buildingNumber
+        'location' => $faker->buildingNumber,
+        'sector' => $faker->company
     ];
 });

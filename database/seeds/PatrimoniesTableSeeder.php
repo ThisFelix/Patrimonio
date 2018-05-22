@@ -17,7 +17,8 @@ class PatrimoniesTableSeeder extends Seeder
             'model' => 'LG A4325',
             'description' => 'Monitor LG 21',
             'image' => 'img.jpg',
-            'location' => 'F2'
+            'location' => 'F2',
+            'sector' => 'informatica'
         ]);
 
         factory('App\Patrimony', 15)->create();

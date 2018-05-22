@@ -1,4 +1,15 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/pdfmake.min.js": "/js/pdfmake.min.js",
+    "/js/jszip.min.js": "/js/jszip.min.js",
+    "/js/buttons.print.min.js": "/js/buttons.print.min.js",
+    "/js/buttons.html5.min.js": "/js/buttons.html5.min.js",
+    "/js/dataTables.responsive.js": "/js/dataTables.responsive.js",
+    "/js/dataTables.editor.js": "/js/dataTables.editor.js",
+    "/js/dataTables.buttons.min.js": "/js/dataTables.buttons.min.js",
+    "/js/jquery.dataTables.min.js": "/js/jquery.dataTables.min.js",
+    "/js/jquery-1.12.4.js": "/js/jquery-1.12.4.js",
+    "/js/script.js": "/js/script.js",
+    "/js/vfs_fonts.js": "/js/vfs_fonts.js"
 }

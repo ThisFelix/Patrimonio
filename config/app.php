@@ -210,5 +210,4 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'dataTable' => Yajra\DataTables\DataTablesServiceProvider::class,
     ],
-
 ];

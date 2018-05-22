@@ -1,5 +1,7 @@
 @extends('adminlte::page')
-
+@section('header')
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/buttons.dataTable.min.js') }}">
+@stop
 @section('title_postfix', 'Equipamentos')
 
 @section('content_header')
@@ -142,8 +144,18 @@
     </div>
     <!-- /.modal -->
     @stop
-    @section('adminlte_js')
-    <script src="{{ asset('js/script.js') }}"></script>
+@section('adminlte_js')
+        <script src="{{ asset('js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('js/dataTables.editor.js') }}"></script>
+        <script src="{{ asset('js/dataTables.responsive.js') }}"></script>
+        <script src="{{ asset('js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('js/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('js/jszip.min.js') }}"></script>
+        <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('js/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     @stack('js')
     @yield('js')
 @stop
