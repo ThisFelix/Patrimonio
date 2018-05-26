@@ -32,7 +32,7 @@
                             <a href="{{ route('rooms.create') }}" class="btn btn-success">Adicionar Sala</a>
                         </p>
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
+                            <table class="table table-hover table-bordered" id="rooms">
                                 <thead>
                                     <th>#</th>
                                     <th>Nome</th>

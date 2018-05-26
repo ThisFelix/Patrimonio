@@ -1,6 +1,39 @@
 $(document).ready(function() {
-    $('#patrimonies').DataTable();
-});
+    var table = $('#patrimonies').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 1, 2, 3, 4, 5 , 6, 7, 8, 9]
+                },
+                title: 'Lista de Patrimonios - IFSP'
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [ 1, 2, 3, 4, 5 , 6, 7, 8, 9]
+                },
+                title: 'Lista de Patrimonios - IFSP'
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: [ 1, 2, 3, 4, 5 , 6, 7, 8, 9]
+                },
+                title: 'Lista de Patrimonios - IFSP'
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [ 0, 1, 2, 3, 4, 5 , 6, 7, 8, 9]
+                }
+            }
+        ],
+        select: true,
+
+    } );
+} );
 
 
 $('#quantity').on('change', function() {

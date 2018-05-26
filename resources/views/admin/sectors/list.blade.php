@@ -32,7 +32,7 @@
                             <a href="{{ route('sectors.create') }}" class="btn btn-success">Adicionar Setor</a>
                         </p>
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered">
+                            <table class="table table-hover table-bordered" id="sectors">
                                 <thead>
                                     <th>#</th>
                                     <th>Nome</th>
