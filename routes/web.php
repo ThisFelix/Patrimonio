@@ -17,90 +17,107 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::resource('buildings', 'BuildingController')->middleware('auth');
     Route::resource('sectors', 'SectorController')->middleware('auth');
     Route::resource('reports', 'ReportController')->middleware('auth');
+
+    /**
+     * 
+     * Patrimony Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+    //Index page
+    Route::get('/', function(){ return view('auth.login'); });
+    //Add Patrimony
+    Route::post('/patrimonies/add', ['uses'=>'PatrimonyController@add', 'as' => 'patrimonies.add']);
+    //Edition Patrimony Routes
+    Route::get('/patrimonies/edition/{id}', ['uses'=>'PatrimonyController@edition', 'as' => 'patrimonies.edition']);
+    Route::put('/patrimonies/edit/{id}', ['uses'=>'PatrimonyController@edit', 'as' => 'patrimonies.edit']);
+    Route::post('/patrimonies/allocate', ['uses'=>'PatrimonyController@allocate', 'as' => 'patrimonies.allocate']);
+    //Delete Patrimony Route
+    Route::get('/patrimonies/delete/{id}', ['uses'=>'PatrimonyController@delete', 'as' => 'patrimonies.delete']);
+
+    /**
+     * 
+     * Buildings Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+    //Add Building
+    Route::post('/buildings/add', ['uses'=>'BuildingController@add', 'as' => 'buildings.add']);
+    //Edition Building Routes
+    Route::get('/buildings/edition/{id}', ['uses'=>'BuildingController@edition', 'as' => 'buildings.edition']);
+    Route::put('/buildings/edit/{id}', ['uses'=>'BuildingController@edit', 'as' => 'buildings.edit']);
+    //Delete Building Route
+    Route::get('/buildings/delete/{id}', ['uses'=>'BuildingController@delete', 'as' => 'buildings.delete']);
+
+
+    /**
+     * 
+     * Rooms Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+    //Add Room
+    Route::post('/rooms/add', ['uses'=>'RoomController@add', 'as' => 'rooms.add']);
+    //Edition Room Routes
+    Route::get('/rooms/edition/{id}', ['uses'=>'RoomController@edition', 'as' => 'rooms.edition']);
+    Route::put('/rooms/edit/{id}', ['uses'=>'RoomController@edit', 'as' => 'rooms.edit']);
+    //Delete Room Route
+    Route::get('/rooms/delete/{id}', ['uses'=>'RoomController@delete', 'as' => 'rooms.delete']);
+    //
+    Auth::routes();
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+    //Add Sector
+    Route::post('/sectors/add', ['uses'=>'SectorController@add', 'as' => 'sectors.add']);
+    Route::post('/sectors/create', ['uses'=>'SectorController@create', 'as' => 'sectors.create']);
+
+    Route::get('/sectors/edition/{id}', ['uses'=>'SectorController@edition', 'as' => 'sectors.edition']);
+    Route::put('/sectors/edit/{id}', ['uses'=>'SectorController@edit', 'as' => 'sectors.edit']);
+
+    Route::get('/sectors/delete/{id}', ['uses'=>'SectorController@delete', 'as' => 'sectors.delete']);
+
+
+
+    /**
+     * 
+     * Reports Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+    //Sector Report
+    Route::get('/reports/sector/{id}', ['uses'=>'ReportController@sectorReport', 'as' => 'reports.sector']);
+    //Room Report
+    Route::get('/reports/room/{id}', ['uses'=>'ReportController@roomReport', 'as' => 'reports.room']);
     
 });
 
 
-Route::get('client', 'Client\patrimonyController@index')->name('client.home');
+$this->group(['middleware'=> ['auth'], 'namespace' => 'Client' ], function (){
+    Route::get('client', 'ClientController@index')->name('client.home');
+    Route::resource('patrimoniesForLoan', 'PatrimonyController')->middleware('auth');
+    
 
-/**
- * 
- * Patrimony Routes
- * 
- * @author: Márcio Isaque
- * 
- */
-//Index page
-Route::get('/', function(){ return view('auth.login'); });
-//Add Patrimony
-Route::post('/patrimonies/add', ['uses'=>'Admin\PatrimonyController@add', 'as' => 'patrimonies.add']);
-//Edition Patrimony Routes
-Route::get('/patrimonies/edition/{id}', ['uses'=>'Admin\PatrimonyController@edition', 'as' => 'patrimonies.edition']);
-Route::put('/patrimonies/edit/{id}', ['uses'=>'Admin\PatrimonyController@edit', 'as' => 'patrimonies.edit']);
-Route::post('/patrimonies/allocate', ['uses'=>'Admin\PatrimonyController@allocate', 'as' => 'patrimonies.allocate']);
-//Delete Patrimony Route
-Route::get('/patrimonies/delete/{id}', ['uses'=>'Admin\PatrimonyController@delete', 'as' => 'patrimonies.delete']);
-
-/**
- * 
- * Buildings Routes
- * 
- * @author: Márcio Isaque
- * 
- */
-//Add Building
-Route::post('/buildings/add', ['uses'=>'Admin\BuildingController@add', 'as' => 'buildings.add']);
-//Edition Building Routes
-Route::get('/buildings/edition/{id}', ['uses'=>'Admin\BuildingController@edition', 'as' => 'buildings.edition']);
-Route::put('/buildings/edit/{id}', ['uses'=>'Admin\BuildingController@edit', 'as' => 'buildings.edit']);
-//Delete Building Route
-Route::get('/buildings/delete/{id}', ['uses'=>'Admin\BuildingController@delete', 'as' => 'buildings.delete']);
-
-
-/**
- * 
- * Rooms Routes
- * 
- * @author: Márcio Isaque
- * 
- */
-//Add Room
-Route::post('/rooms/add', ['uses'=>'Admin\RoomController@add', 'as' => 'rooms.add']);
-//Edition Room Routes
-Route::get('/rooms/edition/{id}', ['uses'=>'Admin\RoomController@edition', 'as' => 'rooms.edition']);
-Route::put('/rooms/edit/{id}', ['uses'=>'Admin\RoomController@edit', 'as' => 'rooms.edit']);
-//Delete Room Route
-Route::get('/rooms/delete/{id}', ['uses'=>'Admin\RoomController@delete', 'as' => 'rooms.delete']);
-//
-Auth::routes();
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+    /**
+     * 
+     * Request Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+    //Form Request
+    Route::get('/patrimoniesForLoan/request/{model}', ['uses'=>'PatrimonyController@request_form', 'as' => 'patrimoniesForLoan.request']);
+});
 
 
 
-
-
-//Add Sector
-Route::post('/sectors/add', ['uses'=>'Admin\SectorController@add', 'as' => 'sectors.add']);
-Route::post('/sectors/create', ['uses'=>'Admin\SectorController@create', 'as' => 'sectors.create']);
-
-Route::get('/sectors/edition/{id}', ['uses'=>'Admin\SectorController@edition', 'as' => 'sectors.edition']);
-Route::put('/sectors/edit/{id}', ['uses'=>'Admin\SectorController@edit', 'as' => 'sectors.edit']);
-
-Route::get('/sectors/delete/{id}', ['uses'=>'Admin\SectorController@delete', 'as' => 'sectors.delete']);
-
-
-
-/**
- * 
- * Reports Routes
- * 
- * @author: Márcio Isaque
- * 
- */
-//Sector Report
-Route::get('/reports/sector/{id}', ['uses'=>'Admin\ReportController@sectorReport', 'as' => 'reports.sector']);
-//Room Report
-Route::get('/reports/room/{id}', ['uses'=>'Admin\ReportController@roomReport', 'as' => 'reports.room']);

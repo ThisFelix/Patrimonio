@@ -95,8 +95,8 @@
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu tree" data-widget="tree">
-                    @can('isAdmin')
                         <li class="header">MENU</li>
+                    @can('isAdmin')
                         <li class="">
                             <a href="patrimonies">
                                 <i class="fa fa-fw fa-laptop "></i>
@@ -150,7 +150,29 @@
                     @endcan
 
                     @can('isUser')
-                        
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-check-square"></i>
+                            <span>Disponibilidade</span>
+                                    <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li class="">
+                                    <a href="#">
+                                        <i class="fa fa-fw fa- "></i>
+                                        <span>Salas</span>
+                                    </a>
+                                    </li>
+                                    <li class="">
+                                    <a href="patrimoniesForLoan">
+                                        <i class="fa fa-fw fa- "></i>
+                                        <span>Equipamentos</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     @endcan
                     </ul>
                 <!-- /.sidebar-menu -->
