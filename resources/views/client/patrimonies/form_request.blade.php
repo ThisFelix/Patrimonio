@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title_postfix', 'Prédios')
+@section('title_postfix', 'Solicitação')
 
 @section('content_header')
     <div class="col-sm-12">
@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <ol class="breadcrumb panel-heading">
-                        <li><a href="{{ route('client.home') }}">Itens</a></li>
+                        <li><a href="{{ route('patrimoniesForLoan') }}">Itens</a></li>
                         <li class="active">Solicitação</li>
                     </ol>
                     <div class="panel-body">

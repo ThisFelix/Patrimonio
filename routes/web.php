@@ -105,8 +105,6 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
 
 $this->group(['middleware'=> ['auth'], 'namespace' => 'Client' ], function (){
     Route::get('client', 'ClientController@index')->name('client.home');
-    Route::resource('patrimoniesForLoan', 'PatrimonyController')->middleware('auth');
-    
 
     /**
      * 
@@ -117,6 +115,7 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Client' ], function (){
      */
     //Form Request
     Route::get('/patrimoniesForLoan/request/{model}', ['uses'=>'PatrimonyController@request_form', 'as' => 'patrimoniesForLoan.request']);
+    Route::get('patrimoniesForLoan', ['uses'=>'PatrimonyController@index', 'as' => 'patrimoniesForLoan']);
 });
 
 

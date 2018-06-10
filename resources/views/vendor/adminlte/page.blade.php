@@ -166,7 +166,7 @@
                                     </a>
                                     </li>
                                     <li class="">
-                                    <a href="patrimoniesForLoan">
+                                    <a href="{{ route('patrimoniesForLoan') }}">
                                         <i class="fa fa-fw fa- "></i>
                                         <span>Equipamentos</span>
                                     </a>
