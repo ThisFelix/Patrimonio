@@ -20,6 +20,9 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     
 });
 
+
+Route::get('client', 'Client\patrimonyController@index')->name('client.home');
+
 /**
  * 
  * Patrimony Routes

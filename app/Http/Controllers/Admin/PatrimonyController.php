@@ -16,11 +16,16 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\PatrimonyRepository;
-
+use Gate;
 
 class PatrimonyController extends Controller
 {
 
+    public function __construct(){
+        if(!Gate::allows('isAdmin')){
+            header('Location: client');
+        }
+    }
     
     /** 
      *  Patrimonies reading function

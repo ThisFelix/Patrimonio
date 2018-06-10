@@ -15,9 +15,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Gate;
 
 class ReportController extends Controller
 {
+
+    public function __construct(){
+        if(!Gate::allows('isAdmin')){
+            header('Location: client');
+        }
+    }
     /** 
      *  Report index function
      *  @return array

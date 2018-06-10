@@ -94,9 +94,65 @@
             <section class="sidebar">
 
                 <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
-                </ul>
+                <ul class="sidebar-menu tree" data-widget="tree">
+                    @can('isAdmin')
+                        <li class="header">MENU</li>
+                        <li class="">
+                            <a href="patrimonies">
+                                <i class="fa fa-fw fa-laptop "></i>
+                                <span>Patrimônios</span>
+                                        <span class="pull-right-container">
+                                <span class="label label-success pull-right"></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-fw fa-map-marker "></i>
+                            <span>Espaços</span>
+                                    <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                            <ul class="treeview-menu">
+                                <li class="">
+                                    <a href="rooms">
+                                        <i class="fa fa-fw fa- "></i>
+                                        <span>Salas</span>
+                                        </a>
+                                        </li>
+                                        <li class="">
+                                        <a href="buildings">
+                                        <i class="fa fa-fw fa- "></i>
+                                        <span>Prédios</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="sectors">
+                                <i class="fa fa-fw fa-users "></i>
+                                <span>Setores</span>
+                                        <span class="pull-right-container">
+                                <span class="label label-success pull-right"></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="reports">
+                                <i class="fa fa-fw fa-list "></i>
+                                <span>Relatórios</span>
+                                        <span class="pull-right-container">
+                                <span class="label label-success pull-right"></span>
+                                </span>
+                            </a>
+                        </li>                    
+                    @endcan
+
+                    @can('isUser')
+                        
+                    @endcan
+                    </ul>
                 <!-- /.sidebar-menu -->
             </section>
             <!-- /.sidebar -->
