@@ -36,6 +36,8 @@
                                 <th>Prontuário</th>
                                 <th>Patrimônio</th>
                                 <th>Motivo</th>
+                                <th>Retirada</th>
+                                <th>Devolução</th>
                                 <th>Status</th>
                                 <th>Ações</th>
                                 </thead>
@@ -49,6 +51,8 @@
                                         <td>{{ $request->prontuario }}</td>
                                         <td>{{ $request->patrimony }}</td>
                                         <td>{{ $request->reason }}</td>
+                                        <td>{{ $request->borrow_date }} {{ $request->borrow_hour }}</td>
+                                        <td>{{ $request->return_date }} {{ $request->return_hour }}</td>
                                         <td>{{ $request->status }}</td>
                                         <td>
                                             @if($request->status == 'Pendente')
