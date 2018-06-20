@@ -46,7 +46,7 @@
                                         <td>{{ $patrimony->description }}</td>
                                         <td>{{ $patrimony->sector_name->name }}</td>
                                         <td>{{ $patrimony->get_count_modelo($patrimony->model) }}</td>
-                                        <td class="text-center"><a href="{{ route('patrimoniesForLoan.request', urlencode($patrimony->model)) }}"><button type="button" class="btn btn-primary">Solicitar</button></a></td>
+                                        <td class="text-center"><form action="{{ route('patrimoniesForLoan.request') }}" method="POST">{{ csrf_field() }}<input type="hidden" name="model_equip" value="{{ $patrimony->model }}" /><button type="submit" class="btn btn-primary">Solicitar</button></form></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -21,11 +21,7 @@ use Gate;
 class PatrimonyController extends Controller
 {
 
-    public function __construct(){
-        if(!Gate::allows('isAdmin')){
-            header('Location: client');
-        }
-    }
+    
     
     /** 
      *  Patrimonies reading function

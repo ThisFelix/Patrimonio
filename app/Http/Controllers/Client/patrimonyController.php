@@ -21,14 +21,29 @@ class patrimonyController extends Controller
     }
 
     /** 
-     *  Request patrimonies reading function
+     *  Request patrimonies form
      *  @return array
      * 
      * */
 
-    public function request_form($model){
-        $patrimony = \App\Patrimony::take(1)->select('name', 'model', 'sector', 'description', 'id', 'image', 'serialNumber')->where('model', urldecode($model))->where('status', 1)->get();
+    public function request_form(Request $request){
+        $patrimony = \App\Patrimony::take(1)->select('name', 'model', 'sector', 'description', 'id', 'image', 'serialNumber')->where('model', urldecode($request->model_equip))->where('status', 1)->get();
         return view('client.patrimonies.form_request', compact('patrimony'));
+    }
+
+    /** 
+     *  Request patrimonies send request
+     *  @return array
+     * 
+     * */
+
+    public function request(Request $request){
+        \App\Request::create($request->all());
+
+        return redirect()->route('patrimoniesForLoan')->with('flash_message', [
+            "msg" => "Solicitação realizada com sucesso!",
+            "class" => "alert-success"
+        ]);
     }
 
 

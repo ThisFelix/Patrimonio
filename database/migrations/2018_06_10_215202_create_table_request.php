@@ -23,7 +23,7 @@ class CreateTableRequest extends Migration
             $table->string('return_date');
             $table->string('return_hour');
             $table->string('reason');
-            $table->string('prontuario');
+            $table->string('prontuario')->default('Não Aluno');
             $table->string('message');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

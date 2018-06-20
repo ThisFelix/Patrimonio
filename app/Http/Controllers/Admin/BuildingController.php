@@ -19,11 +19,7 @@ use Gate;
 
 class BuildingController extends Controller
 {
-    public function __construct(){
-        if(!Gate::allows('isAdmin')){
-            header('Location: client');
-        }
-    }
+    
 
     /** 
      *  Buildings reading function

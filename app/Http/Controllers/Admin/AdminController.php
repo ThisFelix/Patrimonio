@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     
     public function __construct(){
-        if(!Gate::allows('isAdmin')){
+        if(!Gate::allows('admin')){
             header('Location: client');
         }
     }

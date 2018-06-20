@@ -146,32 +146,27 @@
                                 <span class="label label-success pull-right"></span>
                                 </span>
                             </a>
-                        </li>                    
+                        </li>
+                        <li class="">
+                            <a href="requests/list">
+                                <i class="fa fa-calendar"></i>
+                                <span>Solicitações</span>
+                                        <span class="pull-right-container">
+                                <span class="label label-success pull-right"></span>
+                                </span>
+                            </a>
+                        </li>                   
                     @endcan
 
                     @can('isUser')
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-check-square"></i>
-                            <span>Disponibilidade</span>
-                                    <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                            <ul class="treeview-menu">
-                                <li class="">
-                                    <a href="#">
-                                        <i class="fa fa-fw fa- "></i>
-                                        <span>Salas</span>
-                                    </a>
-                                    </li>
-                                    <li class="">
-                                    <a href="{{ route('patrimoniesForLoan') }}">
-                                        <i class="fa fa-fw fa- "></i>
-                                        <span>Equipamentos</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <li class="">
+                            <a href="{{ route('patrimoniesForLoan') }}">
+                                <i class="fa fa-check-square"></i>
+                                <span>Disponibilidade</span>
+                                        <span class="pull-right-container">
+                                <span class="label label-success pull-right"></span>
+                                </span>
+                            </a>
                         </li>
                     @endcan
                     </ul>

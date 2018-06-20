@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Index page
+Route::get('/', function(){ return view('auth.login'); });
+Auth::routes();
+
 $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::get('admin', 'AdminController@index')->name('admin.home');
     Route::resource('patrimonies', 'PatrimonyController')->middleware('auth');
@@ -25,8 +29,7 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
      * @author: Márcio Isaque
      * 
      */
-    //Index page
-    Route::get('/', function(){ return view('auth.login'); });
+    
     //Add Patrimony
     Route::post('/patrimonies/add', ['uses'=>'PatrimonyController@add', 'as' => 'patrimonies.add']);
     //Edition Patrimony Routes
@@ -67,9 +70,7 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     //Delete Room Route
     Route::get('/rooms/delete/{id}', ['uses'=>'RoomController@delete', 'as' => 'rooms.delete']);
     //
-    Auth::routes();
-
-    Auth::routes();
+    
 
     Route::get('/home', 'HomeController@index')->name('home');
 
@@ -99,6 +100,22 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Admin' ], function (){
     Route::get('/reports/sector/{id}', ['uses'=>'ReportController@sectorReport', 'as' => 'reports.sector']);
     //Room Report
     Route::get('/reports/room/{id}', ['uses'=>'ReportController@roomReport', 'as' => 'reports.room']);
+
+
+    /**
+     * Requests Routes
+     * 
+     * @author: Márcio Isaque
+     * 
+     */
+
+     
+    Route::get('/requests/list', ['uses'=>'RequestController@index', 'as' => 'requests.list']);
+
+    //Deny Request
+    Route::get('/requests/deny/{id}', ['uses'=>'RequestController@deny', 'as' => 'requests.deny']);
+    //Accept Request
+    Route::get('/requests/accept/{id}', ['uses'=>'RequestController@accept', 'as' => 'requests.accept']);
     
 });
 
@@ -113,9 +130,11 @@ $this->group(['middleware'=> ['auth'], 'namespace' => 'Client' ], function (){
      * @author: Márcio Isaque
      * 
      */
-    //Form Request
-    Route::get('/patrimoniesForLoan/request/{model}', ['uses'=>'PatrimonyController@request_form', 'as' => 'patrimoniesForLoan.request']);
+    Route::post('/patrimoniesForLoan/request', ['uses'=>'PatrimonyController@request_form', 'as' => 'patrimoniesForLoan.request']);
+    Route::post('/patrimoniesForLoan/send_request', ['uses'=>'PatrimonyController@request', 'as' => 'patrimoniesForLoan.send_request']);
     Route::get('patrimoniesForLoan', ['uses'=>'PatrimonyController@index', 'as' => 'patrimoniesForLoan']);
+    
+    
 });
 
 

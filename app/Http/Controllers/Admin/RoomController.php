@@ -20,11 +20,7 @@ use Gate;
 class RoomController extends Controller
 {
 
-    public function __construct(){
-        if(!Gate::allows('isAdmin')){
-            header('Location: client');
-        }
-    }
+    
     /** 
      *  Room reading function
      *  @return array
