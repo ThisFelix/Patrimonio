@@ -98,7 +98,7 @@
                         <li class="header">MENU</li>
                     @can('isAdmin')
                         <li class="">
-                            <a href="patrimonies">
+                            <a href="/patrimonies">
                                 <i class="fa fa-fw fa-laptop "></i>
                                 <span>Patrimônios</span>
                                         <span class="pull-right-container">
@@ -116,7 +116,7 @@
                         </a>
                             <ul class="treeview-menu">
                                 <li class="">
-                                    <a href="rooms">
+                                    <a href="/rooms">
                                         <i class="fa fa-fw fa- "></i>
                                         <span>Salas</span>
                                         </a>
@@ -130,7 +130,7 @@
                             </ul>
                         </li>
                         <li class="">
-                            <a href="sectors">
+                            <a href="/sectors">
                                 <i class="fa fa-fw fa-users "></i>
                                 <span>Setores</span>
                                         <span class="pull-right-container">
@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li class="">
-                            <a href="reports">
+                            <a href="/reports">
                                 <i class="fa fa-fw fa-list "></i>
                                 <span>Relatórios</span>
                                         <span class="pull-right-container">
@@ -148,7 +148,7 @@
                             </a>
                         </li>
                         <li class="">
-                            <a href="requests/list">
+                            <a href="/requests/list">
                                 <i class="fa fa-calendar"></i>
                                 <span>Solicitações</span>
                                         <span class="pull-right-container">

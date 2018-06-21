@@ -17,20 +17,18 @@ class AlterPatrimoniesTable extends Migration
             $table->string('serialNumber')->nullable()->after('model');
             $table->string('patrimonyNumber')->nullable()->after('serialNumber');
             $table->integer('status')->default(1)->nullable()->after('id');
+
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::table('patrimonies', function (Blueprint $table) {
             $table->dropColumn('patrimonyNumber');
             $table->dropColumn('serialNumber');
             $table->dropColumn('status');
+
         });
     }
 }

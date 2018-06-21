@@ -38,6 +38,7 @@ class patrimonyController extends Controller
      * */
 
     public function request(Request $request){
+
         \App\Request::create($request->all());
 
         return redirect()->route('patrimoniesForLoan')->with('flash_message', [

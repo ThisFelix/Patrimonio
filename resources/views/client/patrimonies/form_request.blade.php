@@ -25,9 +25,9 @@
                     <div class="panel-body">
                         <h3>Detalhes do item</h3>
                         <div class="row">
-                            <div class="col-sm-1">
+                            <div class="col-sm-5">
                                 @if($patrimony[0]->image != null && $patrimony[0]->image != '')
-                                    <img src="{{ url('storage/patrimony/'.$patrimony[0]->image) }}" alt="{{ $patrimony[0]->name }}" class="img-responsive" style="max-width: 300px; height: auto; margin: 10px;">
+                                    <img src="{{ url('storage/patrimony/'.$patrimony[0]->image) }}" alt="{{ $patrimony[0]->name }}" class="img-responsive">
                                 @endif
                             </div>
                             <div class="col-sm-6">
