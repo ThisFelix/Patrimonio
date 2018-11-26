@@ -80,12 +80,6 @@ $(document).ready(function () {
     var table = $('#patrimonies').DataTable({
         dom: 'Bfrtip',
         buttons: [{
-            extend: 'copyHtml5',
-            exportOptions: {
-                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            },
-            title: 'Lista de Patrimonios - IFSP'
-        }, {
             extend: 'excelHtml5',
             exportOptions: {
                 columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -98,13 +92,25 @@ $(document).ready(function () {
             },
             title: 'Lista de Patrimonios - IFSP'
         }, {
-            extend: 'print',
+            extend: 'csvHtml5',
+            text: 'CSV',
             exportOptions: {
-                columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                modifier: {
+                    search: 'none'
+                },
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            }
+        }, {
+            text: 'JSON',
+            action: function action(e, dt, button, config) {
+                var data = dt.buttons.exportData({
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                });
+
+                $.fn.dataTable.fileSave(new Blob([JSON.stringify(data)]), 'Export.json');
             }
         }],
         select: true
-
     });
 });
 
